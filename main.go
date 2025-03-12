@@ -42,9 +42,9 @@ func main() {
 	deleteHandler(db)
 	searchHandler(db)
 
-	http.HandleFunc("/", handler)
 
 	mux := http.NewServeMux()
+	mux.Handle("/", handler)
 	mux.Handle("/list", listHandler(db))
 	mux.Handle("/insert", insertHandler(db))
 	mux.Handle("/delete/", deleteHandler(db))
